@@ -47,7 +47,6 @@ class AuthController extends GetxController {
       await _firebaseAuth.createUserWithEmailAndPassword(
           email: email, password: password);
       Loader.hide();
-      logginType = 'password';
       CustomSnackBar.show('Success', message: 'User registered successfully.');
       Get.offAll(() => const HomeView());
     } on FirebaseAuthException catch (e) {
@@ -72,7 +71,6 @@ class AuthController extends GetxController {
       await _firebaseAuth.signInWithEmailAndPassword(
           email: email, password: password);
       Loader.hide();
-      logginType = 'password';
       CustomSnackBar.show('Success', message: 'Successfully logged in.');
       Get.offAll(() => const HomeView());
     } on FirebaseAuthException catch (e) {
@@ -113,7 +111,6 @@ class AuthController extends GetxController {
       try {
         await _firebaseAuth.signInWithCredential(credential);
         Loader.hide();
-        logginType = 'google';
         CustomSnackBar.show('Success', message: 'Successfully logged in.');
         Get.offAll(() => const HomeView());
       } on FirebaseAuthException catch (e) {
@@ -136,15 +133,7 @@ class AuthController extends GetxController {
     Loader.show();
     try {
       await Future.delayed(const Duration(seconds: 1));
-      switch (logginType) {
-        case 'google':
-          await _googleSignIn.signOut();
-          break;
-        case 'password':
-          await _firebaseAuth.signOut();
-          break;
-        default:
-      }
+      await _firebaseAuth.signOut();
       Loader.hide();
       CustomSnackBar.show('Success', message: 'Successfully log out.');
       Get.offAll(() => const LoginView());
