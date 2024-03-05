@@ -19,6 +19,7 @@ class Components {
     double right = 0,
     double top = 0,
     double bottom = 0,
+    Function(String)? onChanged,
   }) {
     return Container(
       color: Colors.transparent,
@@ -29,6 +30,7 @@ class Components {
         obscureText: obscureText,
         keyboardType: textInputType,
         cursorColor: kPrimaryColor,
+        onChanged: onChanged,
         style: GoogleFonts.lato(
             fontWeight: FontWeight.w500, fontSize: 16.sp, color: kPrimaryColor),
         decoration: InputDecoration(
