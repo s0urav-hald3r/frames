@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:frames/constants/color.dart';
-import 'package:frames/views/divertion.dart';
+import 'package:frames/controllers/auth_controller.dart';
+import 'package:frames/views/home.dart';
 import 'package:frames/views/login.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -15,11 +16,16 @@ class SplashView extends StatefulWidget {
 }
 
 class _SplashViewState extends State<SplashView> {
+  final AuthController _authController = Get.find<AuthController>();
+
   @override
   void initState() {
     super.initState();
-    Future.delayed(
-        const Duration(seconds: 4), () => Get.off(() => const DivertionView()));
+    _authController.isLoggedIn
+        ? Future.delayed(
+            const Duration(seconds: 4), () => Get.off(() => const HomeView()))
+        : Future.delayed(
+            const Duration(seconds: 4), () => Get.off(() => const LoginView()));
   }
 
   @override
