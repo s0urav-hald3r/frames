@@ -3,6 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:frames/components/components.dart';
 import 'package:frames/constants/color.dart';
 import 'package:frames/controllers/auth_controller.dart';
+import 'package:frames/utils/extension.dart';
 import 'package:frames/views/register.dart';
 import 'package:gap/gap.dart';
 import 'package:get/get.dart';
@@ -109,7 +110,11 @@ class _LoginViewState extends State<LoginView> with Components {
                         child: ElevatedButton(
                           onPressed: _authController.isEmailValidate &&
                                   _authController.isPasswordValidate
-                              ? () {}
+                              ? () {
+                                  _authController.handleEmailPasswordLogin(
+                                      _emailController.getValue(),
+                                      _passwordController.getValue());
+                                }
                               : null,
                           child: const Text('LOGIN'),
                         ),

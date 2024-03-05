@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:frames/constants/color.dart';
+import 'package:frames/views/divertion.dart';
 import 'package:frames/views/login.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -18,7 +19,7 @@ class _SplashViewState extends State<SplashView> {
   void initState() {
     super.initState();
     Future.delayed(
-        const Duration(seconds: 3), () => Get.off(() => const LoginView()));
+        const Duration(seconds: 3), () => Get.off(() => const DivertionView()));
   }
 
   @override

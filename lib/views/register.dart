@@ -3,6 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:frames/components/components.dart';
 import 'package:frames/constants/color.dart';
 import 'package:frames/controllers/auth_controller.dart';
+import 'package:frames/utils/extension.dart';
 import 'package:gap/gap.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -108,7 +109,11 @@ class _RegisterViewState extends State<RegisterView> with Components {
                         child: ElevatedButton(
                           onPressed: _authController.isEmailValidate &&
                                   _authController.isPasswordValidate
-                              ? () {}
+                              ? () {
+                                  _authController.handleEmailPasswordRegister(
+                                      _emailController.getValue(),
+                                      _passwordController.getValue());
+                                }
                               : null,
                           child: const Text('REGISTER'),
                         ),

@@ -10,10 +10,13 @@ class Loader {
     Get.dialog(
         Center(
           child: Container(
-              color: Colors.transparent,
-              width: 150.h,
-              height: 150.h,
-              child: Lottie.asset('assets/animations/loader.json')),
+            color: Colors.transparent,
+            width: 300.h,
+            height: 300.h,
+            child: Lottie.asset(
+              'assets/animations/loader.json',
+            ),
+          ),
         ),
         barrierDismissible: false,
         barrierColor: Colors.black38);

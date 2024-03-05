@@ -1,6 +1,11 @@
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:frames/utils/loader.dart';
+import 'package:frames/utils/snackbar.dart';
 import 'package:get/get.dart';
 
 class AuthController extends GetxController {
+  final FirebaseAuth _firebaseAuth = FirebaseAuth.instance;
+
   final RxBool _showPassword = false.obs;
   final RxBool _isEmailValidate = false.obs;
   final RxBool _isPasswordValidate = false.obs;
@@ -15,4 +20,42 @@ class AuthController extends GetxController {
 
   set isEmailValidate(bool status) => _isEmailValidate.value = status;
   set isPasswordValidate(bool status) => _isPasswordValidate.value = status;
+
+  handleEmailPasswordRegister(String email, String password) async {
+    Loader.show();
+    try {
+      await _firebaseAuth.signInWithEmailAndPassword(
+          email: email, password: password);
+      Loader.hide();
+      CustomSnackBar.show('Success', message: 'Successfully registered.');
+      // ! GoTo Loging route
+    } on FirebaseAuthException catch (e) {
+      if (e.code == 'email-already-in-use') {
+        Loader.hide();
+        CustomSnackBar.show('Error',
+            message: 'Email already registered.', type: 2);
+      }
+    }
+  }
+
+  handleEmailPasswordLogin(String email, String password) async {
+    Loader.show();
+    try {
+      await _firebaseAuth.signInWithEmailAndPassword(
+          email: email, password: password);
+      Loader.hide();
+      CustomSnackBar.show('Success', message: 'Successfully logged in.');
+      // ! GoTo Loging route
+    } on FirebaseAuthException catch (e) {
+      if (e.code == 'email-already-in-use') {
+        Loader.hide();
+        CustomSnackBar.show('Error',
+            message: 'Email already registered.', type: 2);
+      }
+    }
+  }
+
+  handleEmailPasswordLogout() async {
+    await _firebaseAuth.signOut();
+  }
 }
