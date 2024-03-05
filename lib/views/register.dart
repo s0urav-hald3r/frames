@@ -120,6 +120,25 @@ class _RegisterViewState extends State<RegisterView> with Components {
                       ),
                     ),
                     Gap(20.h),
+                    SizedBox(
+                      width: double.infinity,
+                      height: 40.h,
+                      child: ElevatedButton(
+                        onPressed: () {},
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Image.asset(
+                              'assets/images/google.png',
+                              height: 17.5.h,
+                            ),
+                            Gap(10.w),
+                            const Text('Register with Google'),
+                          ],
+                        ),
+                      ),
+                    ),
+                    Gap(20.h),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
