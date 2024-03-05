@@ -19,7 +19,7 @@ class _SplashViewState extends State<SplashView> {
   void initState() {
     super.initState();
     Future.delayed(
-        const Duration(seconds: 3), () => Get.off(() => const DivertionView()));
+        const Duration(seconds: 4), () => Get.off(() => const DivertionView()));
   }
 
   @override

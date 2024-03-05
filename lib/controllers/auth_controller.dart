@@ -24,17 +24,23 @@ class AuthController extends GetxController {
   handleEmailPasswordRegister(String email, String password) async {
     Loader.show();
     try {
-      await _firebaseAuth.signInWithEmailAndPassword(
+      await _firebaseAuth.createUserWithEmailAndPassword(
           email: email, password: password);
       Loader.hide();
-      CustomSnackBar.show('Success', message: 'Successfully registered.');
-      // ! GoTo Loging route
+      CustomSnackBar.show('Success', message: 'User registered successfully.');
     } on FirebaseAuthException catch (e) {
+      if (e.code == 'invalid-email') {
+        Loader.hide();
+        CustomSnackBar.show('Error', message: 'Invalid email.', type: 2);
+      }
       if (e.code == 'email-already-in-use') {
         Loader.hide();
         CustomSnackBar.show('Error',
             message: 'Email already registered.', type: 2);
       }
+    } catch (error) {
+      Loader.hide();
+      CustomSnackBar.show('Error', message: error.toString(), type: 2);
     }
   }
 
@@ -45,13 +51,23 @@ class AuthController extends GetxController {
           email: email, password: password);
       Loader.hide();
       CustomSnackBar.show('Success', message: 'Successfully logged in.');
-      // ! GoTo Loging route
     } on FirebaseAuthException catch (e) {
-      if (e.code == 'email-already-in-use') {
+      if (e.code == 'invalid-email') {
+        Loader.hide();
+        CustomSnackBar.show('Error', message: 'Invalid email.', type: 2);
+      }
+      if (e.code == 'user-not-found') {
+        Loader.hide();
+        CustomSnackBar.show('Error', message: 'User not found.', type: 2);
+      }
+      if (e.code == 'wrong-password') {
         Loader.hide();
         CustomSnackBar.show('Error',
-            message: 'Email already registered.', type: 2);
+            message: 'You entered wrong password.', type: 2);
       }
+    } catch (error) {
+      Loader.hide();
+      CustomSnackBar.show('Error', message: error.toString(), type: 2);
     }
   }
 

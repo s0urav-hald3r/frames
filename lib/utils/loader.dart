@@ -19,7 +19,7 @@ class Loader {
           ),
         ),
         barrierDismissible: false,
-        barrierColor: Colors.black38);
+        barrierColor: Colors.black45);
   }
 
   static hide() {

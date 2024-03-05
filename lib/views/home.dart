@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:frames/constants/color.dart';
 import 'package:frames/controllers/auth_controller.dart';
+import 'package:gap/gap.dart';
 import 'package:get/get.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class HomeView extends StatefulWidget {
   const HomeView({super.key});
@@ -28,6 +31,30 @@ class _HomeViewState extends State<HomeView> {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
+                Row(
+                  children: [
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          'Welcome',
+                          style: GoogleFonts.poppins(
+                              fontSize: 30.sp,
+                              fontWeight: FontWeight.bold,
+                              color: kPrimaryColor),
+                        ),
+                        Text(
+                          '3Frames Software Labs',
+                          style: GoogleFonts.poppins(
+                              fontSize: 20.sp,
+                              fontWeight: FontWeight.w500,
+                              color: kPrimaryColor),
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
+                Gap(40.h),
                 SizedBox(
                   width: double.infinity,
                   height: 40.h,
