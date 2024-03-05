@@ -75,7 +75,8 @@ class AuthController extends GetxController {
       }
       if (e.code == 'user-not-found') {
         Loader.hide();
-        CustomSnackBar.show('Error', message: 'User not found.', type: 2);
+        CustomSnackBar.show('Error',
+            message: 'User not found, Please register first.', type: 2);
       }
       if (e.code == 'wrong-password') {
         Loader.hide();
@@ -91,8 +92,10 @@ class AuthController extends GetxController {
   handleEmailPasswordLogout() async {
     Loader.show();
     try {
+      await Future.delayed(const Duration(seconds: 1));
       await _firebaseAuth.signOut();
       Loader.hide();
+      CustomSnackBar.show('Success', message: 'Successfully log out.');
       Get.offAll(() => const LoginView());
     } catch (error) {
       Loader.hide();
