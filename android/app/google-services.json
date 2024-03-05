@@ -12,7 +12,20 @@
           "package_name": "labs.software.frames"
         }
       },
-      "oauth_client": [],
+      "oauth_client": [
+        {
+          "client_id": "802115992707-2lhcfct6pajhr4jpg1upurdl7pp94p05.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "labs.software.frames",
+            "certificate_hash": "1ea24a30ac8c109142544f57b1561d918a94c513"
+          }
+        },
+        {
+          "client_id": "802115992707-24ckhds7jq35bpo7m74j8h6g2pd4plbe.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
       "api_key": [
         {
           "current_key": "AIzaSyBnf7XNy-MvZtvEYBoQqzwmi9nMGmGgEXo"
@@ -20,7 +33,19 @@
       ],
       "services": {
         "appinvite_service": {
-          "other_platform_oauth_client": []
+          "other_platform_oauth_client": [
+            {
+              "client_id": "802115992707-24ckhds7jq35bpo7m74j8h6g2pd4plbe.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "802115992707-ms5k5kei7qg04us3aaj7i7o2e3sf73b2.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "labs.software.frames"
+              }
+            }
+          ]
         }
       }
     }

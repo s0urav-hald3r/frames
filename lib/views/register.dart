@@ -124,7 +124,9 @@ class _RegisterViewState extends State<RegisterView> with Components {
                       width: double.infinity,
                       height: 40.h,
                       child: ElevatedButton(
-                        onPressed: () {},
+                        onPressed: () {
+                          _authController.handleGoogleAuth();
+                        },
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [

@@ -125,7 +125,9 @@ class _LoginViewState extends State<LoginView> with Components {
                       width: double.infinity,
                       height: 40.h,
                       child: ElevatedButton(
-                        onPressed: () {},
+                        onPressed: () {
+                          _authController.handleGoogleAuth();
+                        },
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
