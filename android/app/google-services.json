@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "802115992707",
+    "project_id": "frames-234e6",
+    "storage_bucket": "frames-234e6.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:802115992707:android:d7cae7107d82314ed6afb6",
+        "android_client_info": {
+          "package_name": "labs.software.frames"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBnf7XNy-MvZtvEYBoQqzwmi9nMGmGgEXo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,7 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="labs.software.frames">
    <application
-        android:label="frames"
+        android:label="3Frames"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity

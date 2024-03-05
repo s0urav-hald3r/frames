@@ -1,3 +1,4 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:frames/constants/color.dart';
@@ -6,8 +7,14 @@ import 'package:frames/views/splash.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-void main() {
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  if (Firebase.apps.isEmpty) {
+    await Firebase.initializeApp();
+  }
+
   Get.put(AuthController(), permanent: true);
+
   runApp(const MyApp());
 }
 
